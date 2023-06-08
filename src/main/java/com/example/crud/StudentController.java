@@ -2,6 +2,7 @@ package com.example.crud;
 
 import com.example.crud.model.StudentDTO;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,6 +30,12 @@ public class StudentController {
         System.out.println(email);
         StudentDTO newStudent = studentService.createStudent(name, email);
         System.out.println(newStudent.toString());
-        return "redirect:/create-view"; //중복 데이터 입력 불가
+        return "redirect:/home"; //중복 데이터 입력 불가
+    }
+
+    @GetMapping("/home")
+    public String home(Model model) {
+        model.addAttribute("studentList", studentService.readStudentAll());
+        return "home";
     }
 }
