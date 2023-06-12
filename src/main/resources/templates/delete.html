@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+  <h1>Delete [[${student.name}]]?</h1>
+  <form th:action="@{/{id}/delete (id=${student.id})}" method="post">
+      <h3>[[${student.name}]] 님의 정보를 삭제합니다.</h3>
+  <!--   delete는 추가적인 데이터를 필요로 하지 않으므로 추가적인 input 요소 필요없음-->
+    <input type="submit" value="Delete">
+  </form>
+  <a href="@{/{id}(id=${student.id})}">Back</a>
+</body>
+</html>
