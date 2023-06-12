@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+  <h1>Update Student</h1>
+  <form th:action="@{/{id}/update (id=${student.id})}" method="post">
+    <label for="name-input">Name: <input id="name-input" name="name" th:value="${student.name}"></label>
+    <br>
+    <label for="email-input">Email: <input id="email-input" name="email" th:value="${student.email}"></label>
+    <br>
+    <input type="submit">
+  </form>
+  <!-- 업데이트창에서 다시 돌아가야할 곳은 학생 상세페이지 임의로 아래와 같이 설정 -->
+  <a th:href="@{/{id}(id=${student.id})}">Back</a>
+</body>
+</html>
